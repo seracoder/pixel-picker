@@ -1,0 +1,83 @@
+@import 'tailwindcss';
+
+@theme {
+  --animate-pulse-soft: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-fade-in: fadeIn 0.3s ease-in-out;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility color-card {
+  @apply bg-white rounded-lg shadow-xs border border-gray-200 p-4 transition-all duration-200 hover:shadow-md;
+}
+
+@utility color-value {
+  @apply font-mono text-sm bg-gray-50 px-3 py-2 rounded-sm border cursor-pointer transition-colors hover:bg-gray-100;
+}
+
+@utility tab-button {
+  @apply px-4 py-2 text-sm font-medium transition-colors duration-200 border-b-2;
+}
+
+@utility tab-active {
+  @apply text-blue-600 border-blue-600;
+}
+
+@utility tab-inactive {
+  @apply text-gray-500 border-transparent hover:text-gray-700;
+}
+
+@layer utilities {
+  :root {
+    font-family:
+      'Segoe UI',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Roboto',
+      'Oxygen',
+      'Ubuntu',
+      'Cantarell',
+      sans-serif;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    width: fit-content;
+    height: fit-content;
+    overflow-x: hidden;
+  }
+
+  #app {
+    width: 100%;
+    height: 100%;
+  }
+}
