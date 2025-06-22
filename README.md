@@ -1,6 +1,6 @@
 # Pixel Picker - Chrome Extension
 
-A professional color picker Chrome extension built with Svelte and TailwindCSS.
+A color picker extension that allows you to select and copy colors from any webpage
 
 ## Features
 
